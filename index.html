@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>How did we do? | Silvers Concrete and Paving</title>
+<link rel="icon" href="https://silversconcreteandpaving.com/wp-content/uploads/2025/03/cropped-silver-concrete-horizontal-32x32.png">
+<style>
+  :root { --green:#182A39; --green-dark:#0f1c27; --ink:#1A202C; --muted:#4A5568; --line:#dfe5e9; --bg:#f1f3f5; --star:#f5a524; }
+  * { box-sizing:border-box; }
+  html,body { margin:0; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:var(--bg); color:var(--ink);
+         min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px 16px; }
+  .card { background:#fff; width:100%; max-width:440px; border-radius:16px; padding:32px 24px; box-shadow:0 8px 30px rgba(26,32,44,.08); text-align:center; }
+  .card { overflow:hidden; }
+  .hero { display:block; width:calc(100% + 48px); margin:-32px -24px 24px; height:auto; aspect-ratio:960/720; max-height:230px; object-fit:cover; background:var(--bg); }
+  .logo { max-width:260px; width:84%; height:auto; margin:0 auto 24px; display:block; background:var(--green); padding:14px 20px; border-radius:10px; }
+  .logo-text { font-weight:700; color:var(--green-dark); margin-bottom:24px; }
+  h1 { font-size:24px; line-height:1.25; margin:0 0 8px; }
+  p { color:var(--muted); font-size:16px; line-height:1.5; margin:0 0 20px; }
+  .stars { display:flex; justify-content:center; gap:6px; margin:8px 0 4px; }
+  .stars button { background:none; border:0; padding:4px; cursor:pointer; font-size:48px; line-height:1; color:var(--line); transition:transform .1s, color .1s; }
+  .stars button.on { color:var(--star); }
+  .stars button:active { transform:scale(.9); }
+  .stars button:focus-visible { outline:3px solid var(--green); border-radius:8px; }
+  .hint { font-size:13px; color:#718096; height:18px; }
+  .btn { display:block; width:100%; padding:16px; border-radius:10px; font-size:17px; font-weight:600; text-decoration:none; border:2px solid var(--green); margin-top:10px; font-family:inherit; cursor:pointer; }
+  .btn-primary { background:var(--green); color:#fff; }
+  .btn-primary:hover { background:var(--green-dark); border-color:var(--green-dark); }
+  .btn-secondary { background:#fff; color:var(--green-dark); }
+  .btn-secondary:hover { background:var(--bg); }
+  .small-link { display:block; margin-top:20px; font-size:15px; color:var(--green-dark); text-decoration:underline; }
+  #step-unhappy .back { margin-top:4px; }
+  .back { display:inline-block; background:none; border:0; padding:8px; margin-top:16px; font-size:15px; color:#718096; text-decoration:underline; cursor:pointer; font-family:inherit; }
+  .back:hover { color:var(--ink); }
+  .hidden { display:none; }
+
+  /* Phones: keep every screen on one screen, no scrolling */
+  @media (max-width: 600px) {
+    body { padding:12px; align-items:flex-start; min-height:100dvh; }
+    .card { padding:20px 20px 16px; }
+    .hero { width:calc(100% + 40px); margin:-20px -20px 16px; aspect-ratio:auto; height:20vh; height:20dvh; min-height:90px; max-height:200px; }
+    .logo { max-width:190px; margin-bottom:14px; }
+    h1 { font-size:21px; margin-bottom:6px; }
+    p { font-size:15px; margin-bottom:14px; }
+    .btn { padding:12px; font-size:16px; margin-top:8px; }
+    .stars button { font-size:44px; }
+    .small-link { margin-top:14px; }
+    .back { margin-top:8px; padding:6px; }
+  }
+  @media (max-width: 600px) and (max-height: 600px) {
+    .hero { display:none; }
+  }
+</style>
+</head>
+<body>
+<main class="card">
+  <!-- hero.jpg / logo.png in this folder are used first; if missing, the copies on the Silvers website load instead -->
+  <img class="hero" src="hero.jpg" alt="Stamped concrete patio by Silvers Concrete and Paving" width="960" height="720"
+       onerror="if(!this.dataset.f){this.dataset.f=1;this.src='https://silversconcreteandpaving.com/wp-content/uploads/2025/03/sedonaflagstone-1.jpg';}else{this.remove();}">
+  <img class="logo" src="logo.png" alt="Silvers Concrete and Paving"
+       onerror="if(!this.dataset.f){this.dataset.f=1;this.src='https://silversconcreteandpaving.com/wp-content/uploads/2025/03/silver-concrete-horizontal-white.png';}else{this.outerHTML='<div class=&quot;logo-text&quot;>Silvers Concrete and Paving</div>';}">
+
+  <!-- Step 1: which service -->
+  <section id="step-service" class="hidden">
+    <h1 class="greeting">Thanks for choosing us!</h1>
+    <p>What did we do for you?</p>
+    <div id="service-options"></div>
+  </section>
+
+  <!-- Step 2: rating -->
+  <section id="step-rate" class="hidden">
+    <h1 class="greeting">How did we do?</h1>
+    <p>Tap a star to rate your experience.</p>
+    <div class="stars" id="stars" aria-label="Rating">
+      <button type="button" data-v="1" aria-label="1 star">&#9733;</button>
+      <button type="button" data-v="2" aria-label="2 stars">&#9733;</button>
+      <button type="button" data-v="3" aria-label="3 stars">&#9733;</button>
+      <button type="button" data-v="4" aria-label="4 stars">&#9733;</button>
+      <button type="button" data-v="5" aria-label="5 stars">&#9733;</button>
+    </div>
+    <div class="hint" id="hint"></div>
+    <button type="button" class="back hidden" id="back-to-service">&larr; Back</button>
+  </section>
+
+  <!-- Step 3a: 4-5 stars -->
+  <section id="step-happy" class="hidden">
+    <h1>Thank you!</h1>
+    <p id="happy-text">Would you share that on Google? It takes 30 seconds and helps your neighbors find us.</p>
+    <a class="btn btn-primary google-link" href="#">Leave a Google review</a>
+    <button type="button" class="back">&larr; Change my rating</button>
+  </section>
+
+  <!-- Step 3b: 1-3 stars -->
+  <section id="step-unhappy" class="hidden">
+    <h1>We're sorry we missed the mark.</h1>
+    <p>We want to make it right. Reach us directly, or share your experience on Google. Every review helps us improve.</p>
+    <a class="btn btn-primary" id="call-btn" href="tel:+13178358991">Call us</a>
+    <a class="btn btn-secondary" id="text-btn" href="sms:+13178358991">Text us</a>
+    <a class="small-link google-link" href="#">Or leave a review on Google</a>
+    <button type="button" class="back">&larr; Change my rating</button>
+  </section>
+
+  <noscript>
+    <h1>How did we do?</h1>
+    <p>We'd love your feedback. Call us at (317) 835-8991.</p>
+  </noscript>
+</main>
+
+<script src="config.js"></script>
+<script>
+(function () {
+  // Safe defaults, used if config.js is missing or has a typo.
+  var FALLBACK = {
+    askService: true,
+    serviceOptions: [
+      { label: "Driveway", mention: "your new driveway" }, { label: "Patio or porch", mention: "your new patio" },
+      { label: "Something else", mention: "" }
+    ],
+    split: { north: 1 }, happyMinStars: 4, aliases: {}, fallbackProfile: "north",
+    profiles: { north: { name: "Silvers Concrete and Paving, LLC", reviewUrl: "https://search.google.com/local/writereview?placeid=ChIJDdCAU0WrFIgRuQgJueE0p3g" } },
+    callLabel: "Call us", phoneDisplay: "(317) 835-8991", phoneTel: "+13178358991", showText: true, textTel: "+13178358991"
+  };
+  var C = window.REVIEW_CONFIG || {};
+  for (var k in FALLBACK) if (C[k] === undefined || C[k] === null) C[k] = FALLBACK[k];
+  if (!C.profiles[C.fallbackProfile]) C.profiles = FALLBACK.profiles, C.fallbackProfile = "north";
+
+  var q = new URLSearchParams(location.search);
+  function param(n) { var v = (q.get(n) || "").trim(); return /^\{\{.*\}\}$/.test(v) ? "" : v; } // ignore unfilled merge tags
+
+  function pickBySplit(split) {
+    split = split || C.split || {};
+    var keys = Object.keys(split).filter(function (k) { return C.profiles[k] && Number(split[k]) > 0; });
+    var total = keys.reduce(function (s, k) { return s + Number(split[k]); }, 0);
+    if (!total) return C.fallbackProfile;
+    var r = Math.random() * total;
+    for (var i = 0; i < keys.length; i++) { r -= Number(split[keys[i]]); if (r < 0) return keys[i]; }
+    return keys[keys.length - 1];
+  }
+  function setProfile(key) {
+    var p = C.profiles[key] || C.profiles[C.fallbackProfile];
+    document.querySelectorAll(".google-link").forEach(function (a) { a.href = p.reviewUrl; });
+  }
+
+  // Which profile: ?p= in the link wins; otherwise the % split.
+  // The service question only changes the wording (unless that option has its own split).
+  var asked = param("p").toLowerCase();
+  var fromLink = C.profiles[asked] ? asked : (C.profiles[C.aliases[asked]] ? C.aliases[asked] : "");
+  var showServiceStep = C.askService && C.serviceOptions && C.serviceOptions.length;
+  // Roll once per visit so refresh / back / forward keep the same profile.
+  var rolled = "";
+  try { rolled = sessionStorage.getItem("rr_profile") || ""; } catch (e) {}
+  if (!C.profiles[rolled] || !(Number((C.split || {})[rolled]) > 0)) rolled = pickBySplit();
+  try { sessionStorage.setItem("rr_profile", rolled); } catch (e) {}
+  setProfile(fromLink || rolled);
+
+  document.getElementById("call-btn").href = "tel:" + C.phoneTel;
+  document.getElementById("call-btn").textContent = (C.callLabel || "Call us") + " " + C.phoneDisplay;
+  document.getElementById("text-btn").href = "sms:" + (C.textTel || C.phoneTel);
+  if (C.showText === false) document.getElementById("text-btn").classList.add("hidden");
+  var HAPPY_DEFAULT = document.getElementById("happy-text").textContent;
+
+  var name = param("first_name") || param("name");
+  if (name) {
+    document.querySelector("#step-service .greeting").textContent = "Hi " + name + ", thanks for choosing us!";
+    document.querySelector("#step-rate .greeting").textContent = "Hi " + name + ", how did we do?";
+  }
+
+  // ---- Screens + back/forward ----
+  var STEPS = ["step-service", "step-rate", "step-happy", "step-unhappy"];
+  function show(id) { STEPS.forEach(function (s) { document.getElementById(s).classList.toggle("hidden", s !== id); }); }
+  var firstStep = showServiceStep ? "step-service" : "step-rate";
+  function go(step) { try { history.pushState({ step: step }, "", "#" + step.replace("step-", "")); } catch (e) {} show(step); }
+  function goBack() { if (history.state && history.state.step) history.back(); else { paint(0); show(firstStep); } }
+  window.addEventListener("popstate", function (e) {
+    var step = (e.state && e.state.step) || firstStep;
+    if (step === "step-rate" || step === "step-service") paint(0);
+    show(step);
+  });
+  try { history.replaceState({ step: firstStep }, "", location.pathname + location.search); } catch (e) {}
+
+  // ---- Step 1: service buttons ----
+  if (showServiceStep) {
+    var box = document.getElementById("service-options");
+    C.serviceOptions.forEach(function (opt) {
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "btn btn-secondary"; b.textContent = opt.label;
+      b.addEventListener("click", function () {
+        if (!fromLink && opt.split) setProfile(pickBySplit(opt.split));
+        else setProfile(fromLink || rolled);
+        document.getElementById("happy-text").textContent = opt.mention
+          ? "Would you share that on Google? It takes 30 seconds, and a few words about " + opt.mention + " help your neighbors find us."
+          : HAPPY_DEFAULT;
+        go("step-rate");
+      });
+      box.appendChild(b);
+    });
+    document.getElementById("back-to-service").classList.remove("hidden");
+  }
+  document.getElementById("back-to-service").addEventListener("click", goBack);
+
+  // ---- Step 2: stars ----
+  var labels = ["", "Poor", "Fair", "Okay", "Good", "Excellent"];
+  var stars = document.querySelectorAll("#stars button");
+  function paint(n) {
+    stars.forEach(function (b) { b.classList.toggle("on", Number(b.dataset.v) <= n); });
+    document.getElementById("hint").textContent = labels[n] || "";
+  }
+  stars.forEach(function (b) {
+    var v = Number(b.dataset.v);
+    b.addEventListener("mouseenter", function () { paint(v); });
+    b.addEventListener("mouseleave", function () { paint(0); });
+    b.addEventListener("click", function () {
+      paint(v);
+      setTimeout(function () { go(v >= Number(C.happyMinStars) ? "step-happy" : "step-unhappy"); }, 250);
+    });
+  });
+  document.querySelectorAll("#step-happy .back, #step-unhappy .back").forEach(function (b) { b.addEventListener("click", goBack); });
+
+  show(firstStep);
+})();
+</script>
+</body>
+</html>
